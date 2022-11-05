@@ -1,0 +1,50 @@
+.schedule-div__wrapper::before {
+  content: '';
+  background-color: #222;
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+.schedule-div__content {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 80px;
+  color: #fff;
+  padding-bottom: 100px;
+}
+
+.schedule-heading__div {
+  margin-bottom: 150px;
+}
+
+.schedule-heading__div h1 {
+  font-size: 35px;
+}
+
+.schedule-heading__div h1 span {
+  text-decoration: line-through;
+}
+
+.schedule-heading__div div {
+  margin-top: 20px;
+  line-height: 2;
+}
+
+.schedule-heading__div div p {
+  color: #fff;
+  opacity: 70%;
+  letter-spacing: 0.7px;
+}
+
+.schedules-content__div h3 {
+  margin-bottom: 50px;
+  font-size: 21px;
+}
+
+.schedules-grid__div {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
