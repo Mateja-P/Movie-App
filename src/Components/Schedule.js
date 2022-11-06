@@ -31,11 +31,15 @@ function Schedule() {
               {movies.map((movie, index) => {
                 return (
                   <Card
-                    image={movie.image}
+                    image={
+                      movie.show.image ? movie.show.image.medium : movie.image
+                    }
                     id={movie.show.id}
                     title={movie.name}
                     key={index}
                     date={movie.airdate}
+                    hour={movie.airtime}
+                    runtime={movie.runtime}
                   />
                 );
               })}

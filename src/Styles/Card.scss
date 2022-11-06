@@ -2,8 +2,12 @@
   border-radius: 7px;
   text-decoration: none;
   position: relative;
-  border: 1px solid rgb(158, 158, 158);
+  border: 1px solid rgba(158, 158, 158, 0.432);
   overflow: hidden;
+  -webkit-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 
 .card-info {
@@ -13,14 +17,35 @@
 
 .card__link h1 {
   font-size: 19px;
-  margin-bottom: 6px;
+}
+
+.runtime {
+  margin: 6px 0;
 }
 
 .card__link p {
   font-size: 15px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.701);
 }
 
 .card__link img {
   width: 100%;
+}
+
+@media (max-width: 1450px) {
+  .card__link h1 {
+    font-size: 16px;
+  }
+  .card__link p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card__link h1 {
+    font-size: 14px;
+  }
+  .card__link p {
+    font-size: 11px;
+  }
 }

@@ -14,25 +14,21 @@ function Show() {
     });
   }, []);
 
-  //commit basic show page
-  //responsive za homepage ali bez commita
-  //commit kda se odradi responsive dizajn za obe stranice
-
-  console.log(movie);
-
   return (
     <div className='show-div__wrapper'>
       <div className='show-div__content'>
-        <h1>
-          TV <span className='logo'>Bland</span>
-        </h1>
-        <div className='show-basic-info__div'>
-          <div className='show-image__div'>
-            <img src={movie.image ? movie.image.medium : 'No image'} />
-          </div>
-          <div className='show-text__div'>
-            <h1>{movie.name}</h1>
-            <p>{movie.summary}</p>
+        <div className='show-backgrond__div'>
+          <h1>
+            TV <span className='logo'>Bland</span>
+          </h1>
+          <div className='show-basic-info__div'>
+            <div className='show-image__div'>
+              <img src={movie.image ? movie.image.medium : 'No image'} />
+            </div>
+            <div className='show-text__div'>
+              <h1 className='movies-name'>{movie.name}</h1>
+              <p>{movie.summary}</p>
+            </div>
           </div>
         </div>
         <div className='flex-info__div'>
