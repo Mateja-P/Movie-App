@@ -1,30 +1,40 @@
 .schedule-div__wrapper::before {
   content: '';
   background-color: #222;
-  height: 500px;
+  height: 100%;
   width: 100%;
   position: absolute;
   z-index: -1;
+  top: 0px;
+  background: rgb(30, 21, 48);
+  background: linear-gradient(
+    139deg,
+    rgba(30, 21, 48, 1) 8%,
+    rgba(28, 16, 43, 1) 97%
+  );
 }
 
 .schedule-div__content {
-  width: 75%;
+  width: 80%;
   margin: 0 auto;
   padding-top: 80px;
   color: #fff;
   padding-bottom: 100px;
 }
 
+.schedule-div__background {
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 .schedule-heading__div {
   margin-bottom: 150px;
-}
-
-.schedule-heading__div h1 {
-  font-size: 35px;
-}
-
-.schedule-heading__div h1 span {
-  text-decoration: line-through;
 }
 
 .schedule-heading__div div {
@@ -45,6 +55,6 @@
 
 .schedules-grid__div {
   display: grid;
-  gap: 15px;
+  gap: 55px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }

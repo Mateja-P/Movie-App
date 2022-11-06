@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/Card.scss';
 
-function Card({ id, title, date, image }) {
+function Card({ id, image, title, date }) {
   return (
     <Link className='card__link' to={`/show/${id}`}>
       <div className='image__div'>
@@ -20,4 +20,4 @@ function Card({ id, title, date, image }) {
   );
 }
 
-export default Card;
+export default memo(Card);
