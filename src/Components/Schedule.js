@@ -1,15 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Card from './Card';
 import '../Styles/Schedule.scss';
+import Pagination from './Pagination';
 
 function Schedule() {
-  const [movies, setMovies] = useState([]);
+  const [allMovies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
+  const [posts, setPosts] = useState(12);
+
   useEffect(() => {
     axios.get(`https://api.tvmaze.com/schedule`).then((res) => {
       setMovies(res.data);
     });
   }, []);
+
+  const contentDiv = useRef();
+
+  function scrollOffset() {
+    if (contentDiv.current != undefined) {
+      return contentDiv.current.offsetTop;
+    }
+  }
+
+  const lastIndex = page * posts;
+  const firstIndex = lastIndex - posts;
+  const movies = allMovies.slice(firstIndex, lastIndex);
 
   return (
     <div className='schedule-div__wrapper'>
@@ -25,7 +41,7 @@ function Schedule() {
               <p>Episode, guide, cast, crew and character information.</p>
             </div>
           </div>
-          <div className='schedules-content__div'>
+          <div ref={contentDiv} className='schedules-content__div'>
             <h3>Last added Shows</h3>
             <div className='schedules-grid__div'>
               {movies.map((movie, index) => {
@@ -46,6 +62,13 @@ function Schedule() {
             </div>
           </div>
         </div>
+        <Pagination
+          totalPosts={allMovies.length}
+          postsPerPage={posts}
+          setPage={setPage}
+          currentPage={page}
+          scrollTo={scrollOffset()}
+        />
       </div>
     </div>
   );

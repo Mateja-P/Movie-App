@@ -88,6 +88,12 @@
   }
 }
 
+@media (max-width: 700px) {
+  .schedules-grid__div {
+    gap: 20px;
+  }
+}
+
 @media (max-width: 650px) {
   .schedule-heading__div h1,
   .schedule-heading__div span {
@@ -114,7 +120,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 570px) {
   .schedules-grid__div {
     gap: 45px;
     grid-template-columns: 1fr 1fr;

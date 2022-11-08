@@ -14,6 +14,28 @@ function Show() {
     });
   }, []);
 
+  function findInfo(type) {
+    if (type) {
+      if (typeof type === 'object') {
+        const val = Object.values(type);
+        if (val.length > 0) {
+          return val.map((e, index) => {
+            if (typeof e === 'object') {
+              const e2 = Object.values(e);
+              return e2.map((e3, index) => {
+                return <div key={index}>{e3}</div>;
+              });
+            } else {
+              return <div key={index}>{e}</div>;
+            }
+          });
+        } else {
+          return 'No Data';
+        }
+      }
+    }
+  }
+
   return (
     <div className='show-div__wrapper'>
       <div className='show-div__content'>
@@ -37,18 +59,12 @@ function Show() {
             <div className='each-show-info'>
               <span className='info__span'>Streamed on</span>
               <div className='flex__width'>
-                {movie.network ? movie.network.name : 'Undefined name'}
+                {movie.network ? movie.network.name : 'No data'}
               </div>
             </div>
             <div className='each-show-info'>
               <span className='info__span'>Schedule</span>
-              <div className='flex__width'>
-                {movie.schedule
-                  ? movie.schedule.days.map((day) => {
-                      return ' ' + day + ' ';
-                    })
-                  : 'Undefined Date'}
-              </div>
+              <div className='flex__width'>{findInfo(movie.schedule)}</div>
             </div>
             <div className='each-show-info'>
               <span className='info__span'>Status</span>
@@ -56,13 +72,7 @@ function Show() {
             </div>
             <div className='each-show-info'>
               <span className='info__span'>Genre </span>
-              <div className='flex__width'>
-                {movie.genres
-                  ? movie.genres.map((genre) => {
-                      return genre;
-                    })
-                  : 'No genres'}
-              </div>
+              <div className='flex__width'>{findInfo(movie.genres)}</div>
             </div>
           </div>
           <div className='links-div__wrapper'>
